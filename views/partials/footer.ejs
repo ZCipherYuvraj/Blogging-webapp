@@ -1,0 +1,63 @@
+<style>
+    /* Basic styling for the footer */
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icons a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: #55acee; /* Change color on hover */
+    }
+
+    /* Specific colors for each platform */
+    .social-icons a[href*="linkedin.com"]:hover {
+        color: #0077b5; /* LinkedIn blue */
+    }
+
+    .social-icons a[href*="instagram.com"]:hover {
+        color: #e4405f; /* Instagram pink */
+    }
+
+    .social-icons a[href*="twitter.com"]:hover {
+        color: #55acee; /* Twitter blue */
+    }
+</style>
+
+
+<!-- Your page content goes here -->
+
+<footer>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+    <p>&copy; 2023 ZCipherBlog. All rights reserved.</p>
+</footer>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

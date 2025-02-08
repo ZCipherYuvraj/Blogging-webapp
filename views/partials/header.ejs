@@ -1,0 +1,41 @@
+<header class="bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-gray-800">
+        <a href="#" class="hover:text-gray-600">Z Cipher Blog</a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#" class="text-gray-800 hover:text-gray-600">Home</a></li>
+        <li><a href="#" class="text-gray-800 hover:text-gray-600">Blog</a></li>
+        <li><a href="#" class="text-gray-800 hover:text-gray-600">About</a></li>
+        <li><a href="#" class="text-gray-800 hover:text-gray-600">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by Default) -->
+    <div id="mobile-menu" class="md:hidden hidden px-6 py-4">
+      <ul class="space-y-4">
+        <li><a href="#" class="block text-gray-800 hover:text-gray-600">Home</a></li>
+        <li><a href="#" class="block text-gray-800 hover:text-gray-600">Blog</a></li>
+        <li><a href="#" class="block text-gray-800 hover:text-gray-600">About</a></li>
+        <li><a href="#" class="block text-gray-800 hover:text-gray-600">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
