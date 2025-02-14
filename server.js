@@ -1,51 +1,71 @@
-import bodyParser from "body-parser";
-import express from "express";
-import fs from "fs";
+const bodyParser = require("body-parser");
+const express = require("express");
+
+const fs = require("fs");
+
 
 const app = express();
+app.use(express.json());
 const port = 3000;
 
-app.use(bodyParser.urlencoded({extended:true}));
+// Initialize Firebase
 
 
+
+
+
+
+
+
+
+// Increase the limit for EventEmitter listeners
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.set("view engine","ejs");
+app.set("view engine", "ejs");
 
 let blogs = [];
-const loadBlogs = ()=>{
-    try{
+const loadBlogs = () => {
+    try {
         const data = fs.readFileSync("blogs.json");
-        blogs= JSON.parse(data);
-    } catch (error){
+        blogs = JSON.parse(data);
+    } catch (error) {
         blogs = [];
     }
 };
 loadBlogs();
+
 const saveBlogs = () => {
     fs.writeFileSync("blogs.json", JSON.stringify(blogs, null, 2));
 };
-app.get("/",(req,res)=>{
-    res.render("login.ejs");
-});
-app.post("/login",(req,res)=>{
-    res.redirect("/dashboard");
+
+app.get("/", (req, res) => {
+    res.render("login");
 });
 
-app.get("/dashboard",(req,res)=>{
-    res.render("index",{blogs});
-})
 
-app.get("/create",(req,res)=>{
+
+app.get("/signup", (req, res) => {
+    res.render("signup");
+});
+
+app.get("/dashboard", (req, res) => {
+    res.render("index", { blogs });
+});
+
+app.get("/create", (req, res) => {
     res.render("create.ejs");
-})
+});
+
 app.post("/submit", (req, res) => {
     const { title, content } = req.body;
     if (title && content) {
-        const newBlog = { 
-            id: Date.now().toString(), // Unique ID 
-            title, 
-            content, 
-            date: new Date().toLocaleString() 
+        const newBlog = {
+            id: Date.now().toString(), // Unique ID
+            title,
+            content,
+            date: new Date().toLocaleString()
         };
         blogs.unshift(newBlog);
         saveBlogs();
@@ -63,6 +83,6 @@ app.post("/delete/:id", (req, res) => {
     res.redirect("/dashboard");
 });
 
-app.listen(port,()=>{
-    console.log( `server is running on port ${port}`);
-}) 
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
